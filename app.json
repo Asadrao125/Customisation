@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Customization",
+    "slug": "Customization",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "Customization"
+}
