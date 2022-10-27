@@ -19,7 +19,7 @@ const Login = ({ navigation }) => {
     } else if (password === "") {
       ToastAndroid.show("Enter Password", ToastAndroid.SHORT);
     } else {
-      navigation.navigate("Home", {
+      navigation.replace("Home", {
         username: username,
         email: email,
         password: password,
