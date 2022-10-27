@@ -1,6 +1,5 @@
-import { View, TextInput } from "react-native";
+import { View, TextInput, Image } from "react-native";
 import React from "react";
-import Feather from "react-native-vector-icons/Feather";
 import Colors from "../constants/Colors";
 
 const TextInputComponent = (props) => {
@@ -18,12 +17,17 @@ const TextInputComponent = (props) => {
         flexDirection: "row",
       }}
     >
-      <Feather
-        name={props.iconName}
-        size={20}
-        color={Colors.black}
-        style={{ padding: 5, alignSelf: "center" }}
+      <Image
+        style={{
+          width: 20,
+          height: 20,
+          tintColor: Colors.black,
+          alignSelf: "center",
+          padding: 5,
+        }}
+        source={props.imagePath}
       />
+
       <TextInput
         style={{ left: 5 }}
         placeholder={props.placeholderText}

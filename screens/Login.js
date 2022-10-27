@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import TextInputComponent from "../components/TextInputComponent";
 import AppHeader from "../components/AppHeader";
 import Colors from "../constants/Colors";
+import IconsArray from "../assets/Icons/IconsArray";
 
 const Login = ({ navigation }) => {
   const [username, setUsername] = useState({ value: "" });
@@ -49,7 +50,7 @@ const Login = ({ navigation }) => {
           autoFocus={false}
           secureKeyboard={false}
           borderWidth={1}
-          iconName="user"
+          imagePath={IconsArray.username}
         />
 
         <TextInputComponent
@@ -64,7 +65,7 @@ const Login = ({ navigation }) => {
           autoFocus={false}
           secureKeyboard={false}
           borderWidth={1}
-          iconName="voicemail"
+          imagePath={IconsArray.email}
         />
 
         <TextInputComponent
@@ -79,7 +80,7 @@ const Login = ({ navigation }) => {
           autoFocus={false}
           secureKeyboard={true}
           borderWidth={1}
-          iconName="lock"
+          imagePath={IconsArray.password}
         />
 
         <Button

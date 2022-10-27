@@ -2,6 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { React } from "react";
 import AppHeader from "../components/AppHeader";
 import Colors from "../constants/Colors";
+import IconsArray from "../assets/Icons/IconsArray";
 
 const Home = ({ route, navigation }) => {
   const { username, email, password } = route.params;
@@ -12,9 +13,9 @@ const Home = ({ route, navigation }) => {
         menu
         title="Home"
         navigation={navigation}
-        right="more-vertical"
+        right={IconsArray.setting}
         rightFunction={() => navigation.navigate("Settings")}
-        optionalIcon="bell"
+        optionalIcon={IconsArray.bell}
         optionalFunc={() => navigation.navigate("Notifications")}
         headerBg={Colors.green}
         iconColor={Colors.white}
