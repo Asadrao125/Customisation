@@ -1,5 +1,5 @@
 import { View, StyleSheet, ToastAndroid } from "react-native";
-import { React, useState } from "react";
+import React, { useState } from "react";
 import Button from "../components/Button";
 import TextInputComponent from "../components/TextInputComponent";
 import AppHeader from "../components/AppHeader";
@@ -7,22 +7,24 @@ import Colors from "../constants/Colors";
 import IconsArray from "../assets/Icons/IconsArray";
 
 const Login = ({ navigation }) => {
-  const [username, setUsername] = useState({ value: "" });
-  const [email, setEmail] = useState({ value: "" });
-  const [password, setPassword] = useState({ value: "" });
+  const [user, setUserData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
 
   validateLogin = () => {
-    if (username === "") {
+    if (user.username == "") {
       ToastAndroid.show("Enter Username", ToastAndroid.SHORT);
-    } else if (email === "") {
+    } else if (user.email == "") {
       ToastAndroid.show("Enter Email", ToastAndroid.SHORT);
-    } else if (password === "") {
+    } else if (user.password == "") {
       ToastAndroid.show("Enter Password", ToastAndroid.SHORT);
     } else {
       navigation.replace("Home", {
-        username: username,
-        email: email,
-        password: password,
+        username: user.username,
+        email: user.email,
+        password: user.password,
       });
     }
   };
@@ -39,48 +41,48 @@ const Login = ({ navigation }) => {
 
       <View style={styles.container}>
         <TextInputComponent
-          onChange={(value) => {
-            setUsername(value);
-          }}
           width="90%"
           keyboardType="text"
           placeholderText="Username"
-          borderColor={Colors.black}
+          borderColor={Colors.darkGreen}
           borderRadius={10}
           autoFocus={false}
           secureKeyboard={false}
           borderWidth={1}
           imagePath={IconsArray.username}
+          iconColor={Colors.black}
+          onChange={(value) => setUserData({ ...user, username: value })}
+          value={user.username}
         />
 
         <TextInputComponent
-          onChange={(value) => {
-            setEmail(value);
-          }}
           width="90%"
           keyboardType="email-address"
           placeholderText="Email"
-          borderColor={Colors.black}
+          borderColor={Colors.darkGreen}
           borderRadius={10}
           autoFocus={false}
           secureKeyboard={false}
           borderWidth={1}
           imagePath={IconsArray.email}
+          iconColor={Colors.black}
+          onChange={(value) => setUserData({ ...user, email: value })}
+          value={user.email}
         />
 
         <TextInputComponent
-          onChange={(value) => {
-            setPassword(value);
-          }}
           width="90%"
           keyboardType=""
           placeholderText="Password"
-          borderColor={Colors.black}
+          borderColor={Colors.darkGreen}
           borderRadius={10}
           autoFocus={false}
           secureKeyboard={true}
           borderWidth={1}
           imagePath={IconsArray.password}
+          iconColor={Colors.black}
+          onChange={(value) => setUserData({ ...user, password: value })}
+          value={user.password}
         />
 
         <Button

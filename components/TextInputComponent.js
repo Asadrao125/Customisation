@@ -21,7 +21,7 @@ const TextInputComponent = (props) => {
         style={{
           width: 20,
           height: 20,
-          tintColor: Colors.black,
+          tintColor: props.iconColor,
           alignSelf: "center",
           padding: 5,
         }}
@@ -34,7 +34,7 @@ const TextInputComponent = (props) => {
         autoFocus={props.autoFocus}
         keyboardType={props.keyboardType}
         secureTextEntry={props.secureKeyboard}
-        placeholderTextColor={props.borderColor}
+        placeholderTextColor={Colors.gray}
         onChangeText={(value) => onChange(value)}
         value={value}
         width={props.width}
