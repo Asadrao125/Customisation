@@ -4,20 +4,21 @@ import Colors from "../constants/Colors";
 import CurveImage from "../components/CurveImage";
 import Data from "../constants/Data";
 import TextComponent from "../components/TextComponent";
+import IconsArray from "../assets/Icons/IconsArray";
 
 const Notifications = ({ navigation }) => {
+  navigateToDetails = (item) => {
+    navigation.navigate("Details", {
+      id: item.id,
+      title: item.title,
+      url: item.url,
+      username: item.username,
+    });
+  };
+
   const ViewItem = ({ item }) => {
     return (
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate("Details", {
-            id: item.id,
-            title: item.title,
-            url: item.url,
-            username: item.username,
-          })
-        }
-      >
+      <TouchableOpacity onPress={() => this.navigateToDetails(item)}>
         <View
           style={{
             flexDirection: "row",
@@ -56,6 +57,9 @@ const Notifications = ({ navigation }) => {
         navigation={navigation}
         headerBg={Colors.green}
         iconColor={Colors.white}
+        optionalBadge={Data.length}
+        optionalFunc={() => null}
+        optionalIcon={IconsArray.bell}
       />
 
       <FlatList

@@ -4,14 +4,13 @@ import { Image } from "react-native";
 export default function ImageComponentSimple(props) {
   return (
     <Image
-      source={{
-        uri: props.url,
-      }}
       style={{
-        width: props.width,
-        height: props.height,
-        opacity: props.opacity,
+        width: 20,
+        height: 20,
+        tintColor: props.iconColor,
+        margin: 5,
       }}
+      source={props.imagePath}
     />
   );
 }

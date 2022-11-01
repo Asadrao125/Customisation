@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text } from "react-native";
+import { View } from "react-native";
 import { React } from "react";
 import AppHeader from "../components/AppHeader";
 import Colors from "../constants/Colors";
@@ -19,9 +19,21 @@ const Details = ({ route, navigation }) => {
         headerBg={Colors.green}
         iconColor={Colors.white}
       />
-      <SimpleImage url={url} width={"100%"} height={"30%"} />
+      <View style={{ position: "relative" }}>
+        <SimpleImage width="100%" height={200} url={url} opacity={0.4} />
+        <View
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <CurveImage url={url} width={100} height={100} />
+        </View>
+      </View>
       <View style={{ flexDirection: "row", padding: 10 }}>
-        <CurveImage url={url} width={50} height={50} />
         <View style={{ justifyContent: "center", marginLeft: 10 }}>
           <TextComponent textColor={Colors.black} fontSize={15}>
             {title}

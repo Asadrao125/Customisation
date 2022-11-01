@@ -15,17 +15,23 @@ const Login = ({ navigation }) => {
 
   validateLogin = () => {
     if (user.username == "") {
-      ToastAndroid.show("Enter Username", ToastAndroid.SHORT);
+      ToastAndroid.show("Enter username", ToastAndroid.SHORT);
     } else if (user.email == "") {
-      ToastAndroid.show("Enter Email", ToastAndroid.SHORT);
+      ToastAndroid.show("Enter email", ToastAndroid.SHORT);
     } else if (user.password == "") {
-      ToastAndroid.show("Enter Password", ToastAndroid.SHORT);
+      ToastAndroid.show("Enter password", ToastAndroid.SHORT);
     } else {
-      navigation.replace("Home", {
-        username: user.username,
-        email: user.email,
-        password: user.password,
-      });
+      if (user.email != "raoasad125@gmail.com") {
+        ToastAndroid.show("Invalid email", ToastAndroid.SHORT);
+      } else if (user.password != "asad123") {
+        ToastAndroid.show("Invalid password", ToastAndroid.SHORT);
+      } else {
+        navigation.replace("Home", {
+          username: user.username,
+          email: user.email,
+          password: user.password,
+        });
+      }
     }
   };
 

@@ -1,8 +1,11 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { React } from "react";
 import AppHeader from "../components/AppHeader";
 import Colors from "../constants/Colors";
 import IconsArray from "../assets/Icons/IconsArray";
+import Data from "../constants/Data";
+import TextComponent from "../components/TextComponent";
+import Icon from "../components/Icon";
 
 const Home = ({ route, navigation }) => {
   const { username, email, password } = route.params;
@@ -19,12 +22,38 @@ const Home = ({ route, navigation }) => {
         optionalFunc={() => navigation.navigate("Notifications")}
         headerBg={Colors.green}
         iconColor={Colors.white}
-        optionalBadge={10}
+        optionalBadge={Data.length}
       />
       <View style={styles.container}>
-        <Text style={{ padding: 10 }}>Welcome - {username}</Text>
-        <Text style={{ padding: 10 }}>{email}</Text>
-        <Text style={{ padding: 10 }}>{password}</Text>
+        <TouchableOpacity
+          style={{ flexDirection: "row", alignItems: "center" }}
+        >
+          <TextComponent fontSize={30}>Welcome - {username}</TextComponent>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{
+            flexDirection: "row",
+            width: "100%",
+            alignItems: "center",
+            marginTop: 20,
+          }}
+        >
+          <Icon imagePath={IconsArray.email} iconColor={Colors.green} />
+          <TextComponent fontSize={15}>{email}</TextComponent>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{
+            flexDirection: "row",
+            width: "100%",
+            alignItems: "center",
+            marginTop: 10,
+          }}
+        >
+          <Icon imagePath={IconsArray.password} iconColor={Colors.green} />
+          <TextComponent fontSize={15}>{password}</TextComponent>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -34,10 +63,9 @@ export default Home;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 50,
-    flex: 1,
     alignItems: "center",
     //justifyContent: "center",
     flexDirection: "column",
+    padding: 20,
   },
 });
