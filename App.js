@@ -6,6 +6,7 @@ import Settings from "./screens/Settings";
 import Notifications from "./screens/Notifications";
 import Login from "./screens/Login";
 import Splash from "./screens/Splash";
+import Details from "./screens/Details";
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -23,6 +24,7 @@ const App = () => {
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="Notifications" component={Notifications} />
+        <Stack.Screen name="Details" component={Details} />
       </Stack.Navigator>
     </NavigationContainer>
   );

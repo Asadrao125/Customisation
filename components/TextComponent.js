@@ -7,10 +7,10 @@ export default function TextComponent(props) {
       style={{
         fontSize: props.fontSize,
         fontWeight: props.fontWeight,
-        height: props.height,
+        //height: props.height,
         color: props.textColor,
         textAlignVertical: "center",
-        alignSelf: "center",
+        //alignSelf: "center",
       }}
     >
       {props.children}
